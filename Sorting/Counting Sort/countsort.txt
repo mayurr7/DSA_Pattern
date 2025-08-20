@@ -1,0 +1,60 @@
+#How to Identify Counting Sort Problems
+
+👉 You should think of Counting Sort when:
+
+Input is integers (not floating-point, strings, etc. – unless mapped).
+
+Input size n is large, but the range of values (max - min) is relatively small.
+
+Problem asks for frequency of elements, duplicate counts, or stable sorting.
+
+
+#🔹 Counting Sort Theory
+1. Definition
+
+Counting Sort is a non-comparison-based sorting algorithm.
+Instead of comparing elements (like in Quick Sort or Merge Sort), it counts how many times each element appears and uses this information to place them in the correct order.
+
+2. When to Use
+
+Works best when:
+
+The range of input values (max - min) is not very large compared to the number of elements n.
+
+Input consists of integers or categories (not suitable for floats/strings unless mapped to integers).
+
+
+
+#Algorithm of Counting Sort (for your code):
+
+1) Input: An array arr of size n.
+
+2) Find the minimum and maximum values in the array:
+
+min = Math.min(...arr)
+
+max = Math.max(...arr)
+
+3) Calculate the range of elements:
+
+range = max - min + 1
+
+Create a frequency array count of size range and initialize all elements to 0.
+
+3.1) Store the frequency of each element:
+
+For every element arr[i], increase count[arr[i] - min] by 1.
+
+4) Build the sorted array:
+
+Initialize an empty array sortedArr = [].
+
+For each index i in count:
+
+While count[i] > 0:
+
+Push (i + min) into sortedArr.
+
+Decrease count[i] by 1.
+
+Output: Return sortedArr as the sorted version of the input array.
